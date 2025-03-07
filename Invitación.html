@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Interactiva</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            perspective: 1000px;
+            width: 90vw;
+            max-width: 1652px;
+            height: auto;
+        }
+        .card {
+            width: 100%;
+            aspect-ratio: 1652 / 1240;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+        }
+        .card.flipped {
+            transform: rotateY(180deg);
+        }
+        .side {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .front {
+            background-image: url('https://drive.google.com/uc?export=view&id=1iLSuNyOgGgZmRf5MqtoV-Yy_xPrtkdTC');
+        }
+        .back {
+            background-image: url('https://drive.google.com/uc?export=view&id=1ZGRGWqsqgvRPAzuGDGr6dkoRxsFl2dpr');
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" onclick="flipCard()">
+        <div class="card" id="card">
+            <div class="side front"></div>
+            <div class="side back"></div>
+        </div>
+    </div>
+
+    <script>
+        function flipCard() {
+            document.getElementById('card').classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
